@@ -5,7 +5,7 @@ import {
   Routes,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
-import LearningPathways from "./pages/learning_pathways/Learning_Pathways";
+import LearningPathways from "./pages/Learning_Pathways";
 
 function App() {
   return (
