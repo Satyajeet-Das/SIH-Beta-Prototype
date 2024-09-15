@@ -1,10 +1,11 @@
 import {
+  Navigate,
+  Route,
   BrowserRouter as Router,
   Routes,
-  Route,
-  Navigate,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import LearningPathways from "./pages/learning_pathways/Learning_Pathways";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           path="/"
           element={
             <Layout>
-              hello
+              <LearningPathways />
             </Layout>
           }
         />
