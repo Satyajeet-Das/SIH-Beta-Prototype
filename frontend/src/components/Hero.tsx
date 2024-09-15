@@ -14,7 +14,7 @@ const Hero = () => {
             Personalised matches, whether you're an allied health professional, nurse, or physician, for the best jobs in the clinic and beyond.
           </p>
           <div className="mt-8 flex justify-start space-x-4">
-            <button className="bg-green-300 text-black font-bold py-2 px-6 rounded-full">Find my match</button>
+            <button className="bg-green-300 hover:bg-green-400 text-black font-bold py-2 px-6 rounded-full">Find my match</button>
             <button className="flex items-center space-x-2">
               <span>Watch video</span>
               <FontAwesomeIcon icon={faPlayCircle}
