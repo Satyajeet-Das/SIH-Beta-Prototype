@@ -1,24 +1,11 @@
-@echo off
+@REM @echo off
 
 :: Initializations
 SETLOCAL EnableDelayedExpansion
+
 for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1) do     rem"') do (
   set "DEL=%%a"
 )
-
-:: Functions
-:colorEcho
-echo off
-<nul set /p ".=%DEL%" > "%~2"
-findstr /v /a:%1 /R "^$" "%~2" nul
-del "%~2" > nul 2>&1i
-echo.
-
-:errorExit
-echo.
-call :colorEcho 0c %1
-echo.
-exit /b 1
 
 :: Main
 set "username=Unknown"
@@ -47,25 +34,29 @@ git commit -m "%commit_msg%"
 echo Fetching new changes...
 git fetch
 if errorlevel 1 (
-    call :errorExit "Fetch failed from origin."
+    call :colorEcho 0c "Fetch failed from origin."
+    exit 1
 )
 
 echo Merging new changes...
 git merge
 if errorlevel 1 (
-    call :errorExit "Merge failed from origin. First fix the conflicts and then run the script again."
+    call :colorEcho 0c "Merge failed from origin. First fix the conflicts and then run the script again."
+    exit 1
 )
 
 echo Merging Your Changes...
 git merge dev
 if errorlevel 1 (
-    call :errorExit "Your changes conflict with the main branch. First fix the conflicts and then run the script again."
+    call :colorEcho 0c "Your changes conflict with the main branch. First fix the conflicts and then run the script again."
+    exit 1
 )
 
 echo Pushing new changes...
 git push -u origin
 if errorlevel 1 (
-    call :errorExit "Push failed to origin."
+    call :colorEcho 0c "Push failed to origin."
+    exit 1
 )
 
 git branch -d dev
@@ -73,3 +64,16 @@ git branch dev
 git checkout dev
 
 call :colorEcho 0a "Update successful."
+
+:: Functions
+goto :eof
+
+:colorEcho
+<nul set /p ".=%DEL%" > "%~2"
+findstr /v /a:%1 /R "^$" "%~2" nul
+del "%~2" > nul 2>&1i
+echo.
+exit /b 0
+
+:: End of file
+:eof
