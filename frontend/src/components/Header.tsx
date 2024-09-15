@@ -7,7 +7,7 @@ const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar visibility
 
   return (
-    <div className="bg-green-900 py-4">
+    <div className="bg-green-950 py-4">
       <div className="px-9 mx-auto flex justify-between items-center">
         {/* Sidebar Toggle Button */}
         <div className="space-x-4">
