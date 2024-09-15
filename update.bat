@@ -1,4 +1,4 @@
-@REM @echo off
+@echo off
 
 :: Initializations
 SETLOCAL EnableDelayedExpansion
@@ -10,11 +10,10 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
 :: Main
 set "username=Unknown"
 for /f "tokens=*" %%i in ('git config user.name') do set username=%%i
-echo %username%
 
 set "commit_msg=New update from %username%"
 if "%~1" == "" (
-    set /p commit_msg="Enter commit message (default: 'New Update'): "
+    set /p commit_msg="Enter your commit message (default: '%commit_msg%'): "
     if "%commit_msg%" == "" set "commit_msg=New Update"
 ) else (
     set "commit_msg=%*"
