@@ -20,3 +20,16 @@ const Layout = ({children} : Props) => {
 }
 
 export default Layout;
+
+const Layout1 = ({children} : Props) => {
+    return (
+        <div className="flex w-full flex-col min-h-screen">
+            <Header />
+            <div className="mx-4 py-10 flex-1">
+                {children}
+            </div> 
+            <Footer />
+        </div>
+    );
+}
+export {Layout1};

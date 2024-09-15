@@ -5,7 +5,9 @@ import {
   Routes,
 } from "react-router-dom";
 import Layout from "./layouts/Layout";
+import {Layout1} from "./layouts/Layout";
 import LearningPathways from "./pages/Learning_Pathways";
+
 
 function App() {
   return (
@@ -20,7 +22,15 @@ function App() {
             </Layout>
           }
         />
-        <Route path="*" element={<Navigate to="/" />} />
+                <Route
+          path="/skill-gap"
+          element={
+            <Layout1>
+              hellodf
+            </Layout1>
+          }
+        />
+        {/* <Route path="*" element={<Navigate to="/" />} /> */}
       </Routes>
     </Router>
   );
