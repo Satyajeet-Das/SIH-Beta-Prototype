@@ -30,20 +30,20 @@ git checkout main
 git add .
 git commit -m "%commit_msg%"
 
-echo Fetching new changes...
+call :colorEcho 0b "Fetching new changes..."
 git fetch
 if errorlevel 1 (
     call :colorEcho 0c "Fetch failed from origin. Check your internet connection or maybe the repository is not available."
     exit 1
 )
 
-echo Merging new changes...
+call :colorEcho 0b "Merging new changes..."
 git merge
 
-echo Merging Your Changes...
+call :colorEcho 0b "Merging Your Changes..."
 git merge dev
 
-echo Pushing new changes...
+call :colorEcho 0b "Pushing new changes..."
 git push -u origin
 
 git branch -d dev
