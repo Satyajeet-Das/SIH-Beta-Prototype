@@ -33,30 +33,18 @@ git commit -m "%commit_msg%"
 echo Fetching new changes...
 git fetch
 if errorlevel 1 (
-    call :colorEcho 0c "Fetch failed from origin."
+    call :colorEcho 0c "Fetch failed from origin. Check your internet connection or maybe the repository is not available."
     exit 1
 )
 
 echo Merging new changes...
 git merge
-if errorlevel 1 (
-    call :colorEcho 0c "Merge failed from origin. First fix the conflicts and then run the script again."
-    exit 1
-)
 
 echo Merging Your Changes...
 git merge dev
-if errorlevel 1 (
-    call :colorEcho 0c "Your changes conflict with the main branch. First fix the conflicts and then run the script again."
-    exit 1
-)
 
 echo Pushing new changes...
 git push -u origin
-if errorlevel 1 (
-    call :colorEcho 0c "Push failed to origin."
-    exit 1
-)
 
 git branch -d dev
 git branch dev
