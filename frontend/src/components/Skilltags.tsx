@@ -25,7 +25,8 @@ const SkillTags = ({text, difficulty, type}: Props) => {
                     {text}
                 </span>
             ) : (
-                <span className="mr-4 mb-2 px-4 py-1  text-[#9679ec] bg-[#ebe6f9] mt-2 rounded-xl">
+                // <span className="mr-4 mb-2 px-4 py-1 font-bold  text-[#9679ec] bg-[#ebe6f9] mt-2 rounded-xl border-2 border-[#D1B2FD]">
+                <span className="mr-4 mb-2 px-4 py-1 font-semibold  text-white bg-gradient-to-l from-purple-300 via-blue-600 to-blue-500   mt-2 rounded-xl " >
                     <FontAwesomeIcon className={`mr-1 text-sm ${difficultyClass}`} icon={faCircle} />
                     {text}
                 </span>
