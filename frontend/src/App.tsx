@@ -24,7 +24,7 @@ function App() {
         />
 
         <Route path="/skill-gap" element={<Layout1><SkillGap /></Layout1>} />
-        {/* <Route path="*" element={<Navigate to="/" />} /> */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
