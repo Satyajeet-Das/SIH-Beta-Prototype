@@ -1,3 +1,4 @@
+import logo from "./logo.png";
 const Footer = () => {
     return (
         <div className="bg-green-950 py-3 px-10">
@@ -10,7 +11,8 @@ const Footer = () => {
                 </button>
             </section>
             <div className="max-auto flex justify-between items-center">
-                <span className="text-sm md:text-base text-white font-bold tracking-tight"> Job Website Name</span>
+                {/* <span className="text-sm md:text-base text-white font-bold tracking-tight"> dhrti</span> */}
+                <img src={logo} alt="Dhrti" className="h-8 w-auto " />
                 <span className="text-sm md:text-base text-white font-bold tracking-tight flex gap-4">
                     <p className="cursor-pointer">Privacy Policy</p>
                     <p className="cursor-pointer">Terms of Service</p>

@@ -32,7 +32,7 @@ const SkillGap = () => {
 
   return (
     <>
-    <ProgressBar rating={5} />
+    <ProgressBar rating={2.4} />
       <h2 className="mt-8 mb-9 text-2xl font-bold">
         skills that you need to acquire:
       </h2>

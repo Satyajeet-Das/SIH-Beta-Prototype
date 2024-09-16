@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import logo from "./logo.png"
+
 
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false); // State for sidebar visibility
@@ -10,7 +12,7 @@ const Header = () => {
     <div className="bg-green-950 py-4">
       <div className="px-9 mx-auto flex justify-between items-center">
         {/* Sidebar Toggle Button */}
-        <div className="space-x-4">
+        <div className="flex items-center space-x-4">
             <FontAwesomeIcon
             className="cursor-pointer text-white md:hidden"
             icon={isSidebarOpen ? faTimes : faBars}
@@ -18,9 +20,11 @@ const Header = () => {
             />
 
             {/* Website Name */}
-            <Link to="/" className="text-sans text-xl md:text-2xl text-white font-bold tracking-tight">
-            Job Website Name
+           
+            <Link to="/" className="flex items-center text-sans text-xl md:text-2xl text-white font-bold tracking-tight">
+              <img src={logo} alt="Dhrti" className="h-9 w-auto " />
             </Link>
+            
         </div>
 
         {/* Links for medium screens and up */}
