@@ -4,8 +4,8 @@ import {
   BrowserRouter as Router,
   Routes,
 } from "react-router-dom";
-import Layout from "./layouts/Layout";
-import { Layout1 } from "./layouts/Layout";
+import JobListPage from "./components/jobs_screen/job_screen";
+import Layout, { Layout1 } from "./layouts/Layout";
 import LearningPathways from "./pages/Learning_Pathways";
 import SkillGap from "./pages/skillGap";
 
@@ -19,6 +19,7 @@ function App() {
           element={
             <Layout>
               <LearningPathways />
+              <JobListPage />
             </Layout>
           }
         />
