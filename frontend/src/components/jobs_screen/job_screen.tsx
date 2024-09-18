@@ -64,16 +64,7 @@ const JobListPage = () => {
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
 
     return (
-        <div
-            className="relative bg-green-950 text-white h-full flex flex-col items-center justify-between"
-            style={{
-                backgroundImage: `url("https://www.shutterstock.com/image-photo/portrait-overjoyed-young-diverse-employees-600nw-2023272488.jpg")`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-            }}
-        >
-            <div className="absolute inset-0 bg-green-950 opacity-90"></div>
-
+        <div className="relative bg-green-950 text-white h-full flex flex-col items-center justify-between">
             <div className="w-full z-10">
                 <Header />
             </div>
