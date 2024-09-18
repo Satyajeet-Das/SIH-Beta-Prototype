@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from '../Header';
 
 const JobListPage = () => {
     const icons: { [key: string]: string } = {
@@ -63,136 +64,151 @@ const JobListPage = () => {
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
 
     return (
-        <div className="flex h-screen">
-            {/* Job List Section */}
-            <div className="w-1/3 p-4 bg-gray-100 overflow-auto rounded-[20px]">
-                {/* <h2 className="text-2xl font-semibold mb-4">Job Listings</h2> */}
-                <ul>
-                    {jobs.map((job) => (
-                        <li
-                            key={job.id}
-                            className={`p-4 mb-4 shadow-md cursor-pointer transition border-2 rounded-[20px] ${selectedJob?.id === job.id ? 'bg-yellow-100 border-yellow-500' : 'bg-white border-yellow-400 hover:bg-gray-50'
-                                }`}
-                            onClick={() => setSelectedJob(job)}
-                        >
-                            <div className="flex items-start justify-between w-full text-sm text-gray-400 mb-2">
-                                <div className="flex items-center">
-                                    <img
-                                        src='src/assets/location_icon.png'
-                                        alt="Location Icon"
-                                        className="w-4 h-4 mr-1"
-                                    />
-                                    <p>{job.location}</p>
-                                </div>
-                                <p>{job.daysAgo} days ago</p>
-                            </div>
+        <div
+            className="relative bg-green-950 text-white h-196 flex flex-col items-center justify-between"
+            style={{
+                backgroundImage: `url("https://www.shutterstock.com/image-photo/portrait-overjoyed-young-diverse-employees-600nw-2023272488.jpg")`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+            }}
+        >
+            <div className="absolute inset-0 bg-green-950 opacity-90"></div>
 
-                            <div className="flex items-center mb-2">
-                                <img src={job.logo} alt="Company Logo" className="w-12 h-12 mr-4" />
-                                <div>
-                                    <h3 className="text-xl font-semibold">{job.title}</h3>
-                                    <p className="text-sm text-gray-600">{job.companyName}</p>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap gap-2 text-sm text-gray-500 mt-2">
-                                <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
-                                    <img src="src/assets/money.png" alt="Salary Icon" className="w-4 h-4 mr-1" />
-                                    {job.salary}
-                                </div>
-                                <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
-                                    <img src="src/assets/person.webp" alt="Experience Icon" className="w-4 h-4 mr-1" />
-                                    {job.experience}
-                                </div>
-                                <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
-                                    <img src="src/assets/job.png" alt="Job Icon" className="w-4 h-4 mr-1" />
-                                    {job.type}
-                                </div>
-                            </div>
-                        </li>
-                    ))}
-
-
-                </ul>
+            <div className="w-full z-10">
+                <Header />
             </div>
 
-            {/* Job Description Section */}
-            <div className="w-2/3 p-8 bg-white overflow-auto rounded-r-[20px] bg-gray-100">
-                <div className="relative mb-6">
-                    {/* Background Image */}
-                    <img
-                        src={selectedJob.backgroundImg}
-                        alt="Background"
-                        className="w-full h-48 object-cover rounded-t-[20px]"
-                    />
+            <div className="flex h-screen z-10 text-black w-full bg-white bg-opacity-90">
+                {/* Job List Section */}
+                <div className="w-1/3 p-4 bg-gray-100 overflow-auto rounded-[20px]">
+                    {/* <h2 className="text-2xl font-semibold mb-4">Job Listings</h2> */}
+                    <ul>
+                        {jobs.map((job) => (
+                            <li
+                                key={job.id}
+                                className={`p-4 mb-4 shadow-md cursor-pointer transition border-2 rounded-[20px] ${selectedJob?.id === job.id ? 'bg-yellow-100 border-yellow-500' : 'bg-white border-yellow-400 hover:bg-gray-50'
+                                    }`}
+                                onClick={() => setSelectedJob(job)}
+                            >
+                                <div className="flex items-start justify-between w-full text-sm text-gray-400 mb-2">
+                                    <div className="flex items-center">
+                                        <img
+                                            src='src/assets/location_icon.png'
+                                            alt="Location Icon"
+                                            className="w-4 h-4 mr-1"
+                                        />
+                                        <p>{job.location}</p>
+                                    </div>
+                                    <p>{job.daysAgo} days ago</p>
+                                </div>
 
-                    {/* Logo */}
-                    {/* Give it some padding */}
-                    <div className="absolute top-1/2 transform translate-y-1 left-4 bg-white p-2 rounded-full shadow-md">
-                        <img
-                            src={selectedJob.logo}
-                            alt="Company Logo"
-                            className="w-16 h-16 rounded-full shadow-md"
-                            style={{ backgroundColor: 'white' }}
-                        />
-                    </div>
+                                <div className="flex items-center mb-2">
+                                    <img src={job.logo} alt="Company Logo" className="w-12 h-12 mr-4" />
+                                    <div>
+                                        <h3 className="text-xl font-semibold">{job.title}</h3>
+                                        <p className="text-sm text-gray-600">{job.companyName}</p>
+                                    </div>
+                                </div>
 
-                    {/* Content below the image */}
-                    <div className="flex justify-between items-center mt-8 px-4">
-                        <div className="flex items-center">
-                            <h2 className="text-3xl font-semibold">{selectedJob.companyName}</h2>
-                        </div>
-                        <div className="flex items-center gap-2">
-                            <button className="px-4 py-2 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition">
-                                Apply Now
-                            </button>
-                            <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full shadow hover:bg-gray-200 transition">
-                                <img src="src/assets/more.png" alt="More Options" className="w-4 h-4" />
-                            </button>
-                        </div>
-                    </div>
+                                <div className="flex flex-wrap gap-2 text-sm text-gray-500 mt-2">
+                                    <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
+                                        <img src="src/assets/money.png" alt="Salary Icon" className="w-4 h-4 mr-1" />
+                                        {job.salary}
+                                    </div>
+                                    <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
+                                        <img src="src/assets/person.webp" alt="Experience Icon" className="w-4 h-4 mr-1" />
+                                        {job.experience}
+                                    </div>
+                                    <div className="bg-gray-200 px-3 py-1 rounded-full flex items-center">
+                                        <img src="src/assets/job.png" alt="Job Icon" className="w-4 h-4 mr-1" />
+                                        {job.type}
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+
+
+                    </ul>
                 </div>
 
+                {/* Job Description Section */}
+                <div className="w-2/3 p-8 bg-white overflow-auto bg-gray-100">
+                    <div className="relative mb-6">
+                        {/* Background Image */}
+                        <img
+                            src={selectedJob.backgroundImg}
+                            alt="Background"
+                            className="w-full h-48 object-cover rounded-t-[20px]"
+                        />
 
-                <div className="flex flex-wrap gap-4 mb-6">
-                    {/* <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.location}</div>
+                        {/* Logo */}
+                        {/* Give it some padding */}
+                        <div className="absolute top-1/2 transform translate-y-1 left-4 bg-white p-2 rounded-full shadow-md">
+                            <img
+                                src={selectedJob.logo}
+                                alt="Company Logo"
+                                className="w-16 h-16 rounded-full shadow-md"
+                                style={{ backgroundColor: 'white' }}
+                            />
+                        </div>
+
+                        {/* Content below the image */}
+                        <div className="flex justify-between items-center mt-8 px-4">
+                            <div className="flex items-center">
+                                <h2 className="text-3xl font-semibold">{selectedJob.companyName}</h2>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <button className="px-4 py-2 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition">
+                                    Apply Now
+                                </button>
+                                <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full shadow hover:bg-gray-200 transition">
+                                    <img src="src/assets/more.png" alt="More Options" className="w-4 h-4" />
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div className="flex flex-wrap gap-4 mb-6">
+                        {/* <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.location}</div>
                     <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.type}</div>
                     <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.salary}</div>
                     <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.daysAgo} days ago</div> */}
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
-                        <img src="src/assets/location_icon.png" alt="Location Icon" className="w-4 h-4 mr-1" />
-                        {selectedJob.location}
-                    </div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
-                        <img src="src/assets/job.png" alt="Job Icon" className="w-4 h-4 mr-1" />
-                        {selectedJob.type}
-                    </div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
-                        <img src="src/assets/money.png" alt="Salary Icon" className="w-4 h-4 mr-1" />
-                        {selectedJob.salary}
-                    </div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
-                        <img src="src/assets/person.webp" alt="Experience Icon" className="w-4 h-4 mr-1" />
-                        {selectedJob.experience}
-                    </div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
-                        <img src="src/assets/clock.png" alt="Time Icon" className="w-4 h-4 mr-1" />
-                        {selectedJob.daysAgo} days ago
-                    </div>
-                </div>
-
-                <h3 className="text-2xl font-semibold mb-4">Required Skills</h3>
-                <div className="flex flex-wrap gap-4">
-                    {selectedJob.skills.map((skill, index) => (
-                        <div key={index} className="flex flex-col items-center">
-                            <img src={icons[skill]} alt={skill} className="w-12 h-12 mb-2" />
-                            <p className="text-gray-700 text-sm">{skill}</p>
+                        <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
+                            <img src="src/assets/location_icon.png" alt="Location Icon" className="w-4 h-4 mr-1" />
+                            {selectedJob.location}
                         </div>
-                    ))}
-                </div>
+                        <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
+                            <img src="src/assets/job.png" alt="Job Icon" className="w-4 h-4 mr-1" />
+                            {selectedJob.type}
+                        </div>
+                        <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
+                            <img src="src/assets/money.png" alt="Salary Icon" className="w-4 h-4 mr-1" />
+                            {selectedJob.salary}
+                        </div>
+                        <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
+                            <img src="src/assets/person.webp" alt="Experience Icon" className="w-4 h-4 mr-1" />
+                            {selectedJob.experience}
+                        </div>
+                        <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
+                            <img src="src/assets/clock.png" alt="Time Icon" className="w-4 h-4 mr-1" />
+                            {selectedJob.daysAgo} days ago
+                        </div>
+                    </div>
 
-                <h3 className="text-2xl font-semibold mt-6 mb-4">Job Description</h3>
-                <p className="text-gray-700">{selectedJob.description}</p>
+                    <h3 className="text-2xl font-semibold mb-4">Required Skills</h3>
+                    <div className="flex flex-wrap gap-4">
+                        {selectedJob.skills.map((skill, index) => (
+                            <div key={index} className="flex flex-col items-center">
+                                <img src={icons[skill]} alt={skill} className="w-12 h-12 mb-2" />
+                                <p className="text-gray-700 text-sm">{skill}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <h3 className="text-2xl font-semibold mt-6 mb-4">Job Description</h3>
+                    <p className="text-gray-700">{selectedJob.description}</p>
+                </div>
             </div>
         </div>
     );

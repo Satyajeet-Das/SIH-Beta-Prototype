@@ -1,19 +1,19 @@
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer";
 
 interface Props {
     children: React.ReactNode;
 }
 
-const Layout = ({children} : Props) => {
+const Layout = ({ children }: Props) => {
     return (
         <div className="flex w-full flex-col min-h-screen">
-            <Header />
+            {/* <Header /> */}
             <Hero />
             <div className="mx-4 py-10 flex-1">
                 {children}
-            </div> 
+            </div>
             <Footer />
         </div>
     )
@@ -21,15 +21,15 @@ const Layout = ({children} : Props) => {
 
 export default Layout;
 
-const Layout1 = ({children} : Props) => {
+const Layout1 = ({ children }: Props) => {
     return (
         <div className="flex w-full flex-col min-h-screen">
             <Header />
             <div className="mx-4 py-10 flex-1">
                 {children}
-            </div> 
+            </div>
             <Footer />
         </div>
     );
 }
-export {Layout1};
+export { Layout1 };

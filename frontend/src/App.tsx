@@ -19,12 +19,12 @@ function App() {
           element={
             <Layout>
               <LearningPathways />
-              <JobListPage />
             </Layout>
           }
         />
 
         <Route path="/skill-gap" element={<Layout1><SkillGap /></Layout1>} />
+        <Route path="/jobs" element={<JobListPage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>

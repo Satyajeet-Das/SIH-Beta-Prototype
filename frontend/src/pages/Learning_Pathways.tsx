@@ -1,6 +1,6 @@
 import pathwayImage from '../assets/react-pathway.png';
 
-const IntroPage = () => {
+const LearningPathways = () => {
     return (
         <div className="intro-page flex flex-col md:flex-row justify-between items-center py-10">
             <div className="px-5 flex flex-col items-center md:items-start text-center md:text-left">
@@ -20,4 +20,4 @@ const IntroPage = () => {
     );
 };
 
-export default IntroPage;
+export default LearningPathways;
