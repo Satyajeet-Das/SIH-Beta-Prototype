@@ -12,6 +12,8 @@ const JobListPage = () => {
         "JavaScript": "src/assets/lanugages/js.png",
         "HTML": "src/assets/lanugages/html.png",
         "CSS": "src/assets/lanugages/css.png",
+        "Node.js": "src/assets/lanugages/nodejs.png",
+        "SQL": "src/assets/lanugages/sql.png",
     };
     const jobs = [
         {
@@ -42,6 +44,20 @@ const JobListPage = () => {
             experience: '2-4 years',
             backgroundImg: 'src/assets/amazon_headquaters.jpg',
         },
+        {
+            id: 3,
+            location: 'Mumbai, India',
+            type: 'Full-Time',
+            salary: '₹50,00,000 - ₹65,00,000',
+            title: 'Backend Developer',
+            daysAgo: 8,
+            logo: 'src/assets/microsoft.png',
+            companyName: 'Microsoft',
+            description: 'We are looking for a backend developer skilled in JavaScript and Python.',
+            skills: ['JavaScript', 'Python', 'Node.js', 'SQL'],
+            experience: '3-5 years',
+            backgroundImg: 'src/assets/microsoft_headquaters.jpg',
+        }
     ];
 
     const [selectedJob, setSelectedJob] = useState(jobs[0]);
@@ -49,7 +65,7 @@ const JobListPage = () => {
     return (
         <div className="flex h-screen">
             {/* Job List Section */}
-            <div className="w-1/3 p-4 bg-gray-100 overflow-auto">
+            <div className="w-1/3 p-4 bg-gray-100 overflow-auto rounded-[20px]">
                 {/* <h2 className="text-2xl font-semibold mb-4">Job Listings</h2> */}
                 <ul>
                     {jobs.map((job) => (
