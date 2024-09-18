@@ -65,7 +65,7 @@ const JobListPage = () => {
 
     return (
         <div
-            className="relative bg-green-950 text-white h-196 flex flex-col items-center justify-between"
+            className="relative bg-green-950 text-white h-full flex flex-col items-center justify-between"
             style={{
                 backgroundImage: `url("https://www.shutterstock.com/image-photo/portrait-overjoyed-young-diverse-employees-600nw-2023272488.jpg")`,
                 backgroundSize: "cover",
@@ -78,10 +78,9 @@ const JobListPage = () => {
                 <Header />
             </div>
 
-            <div className="flex h-screen z-10 text-black w-full bg-white bg-opacity-90">
+            <div className="flex flex-col md:flex-row h-auto z-10 text-black w-full bg-white bg-opacity-90">
                 {/* Job List Section */}
-                <div className="w-1/3 p-4 bg-gray-100 overflow-auto rounded-[20px]">
-                    {/* <h2 className="text-2xl font-semibold mb-4">Job Listings</h2> */}
+                <div className="w-full md:w-1/3 p-4 bg-gray-100 overflow-auto rounded-[20px]">
                     <ul>
                         {jobs.map((job) => (
                             <li
@@ -126,54 +125,42 @@ const JobListPage = () => {
                                 </div>
                             </li>
                         ))}
-
-
                     </ul>
                 </div>
 
                 {/* Job Description Section */}
-                <div className="w-2/3 p-8 bg-white overflow-auto bg-gray-100">
+                <div className="w-full md:w-2/3 p-4 md:p-8 bg-white overflow-auto bg-gray-100">
                     <div className="relative mb-6">
                         {/* Background Image */}
                         <img
                             src={selectedJob.backgroundImg}
                             alt="Background"
-                            className="w-full h-48 object-cover rounded-t-[20px]"
+                            className="w-full h-48 md:h-64 object-cover rounded-t-[20px]"
                         />
 
                         {/* Logo */}
-                        {/* Give it some padding */}
                         <div className="absolute top-1/2 transform translate-y-1 left-4 bg-white p-2 rounded-full shadow-md">
                             <img
                                 src={selectedJob.logo}
                                 alt="Company Logo"
                                 className="w-16 h-16 rounded-full shadow-md"
-                                style={{ backgroundColor: 'white' }}
                             />
                         </div>
 
                         {/* Content below the image */}
                         <div className="flex justify-between items-center mt-8 px-4">
                             <div className="flex items-center">
-                                <h2 className="text-3xl font-semibold">{selectedJob.companyName}</h2>
+                                <h2 className="text-2xl md:text-3xl font-semibold">{selectedJob.companyName}</h2>
                             </div>
                             <div className="flex items-center gap-2">
                                 <button className="px-4 py-2 bg-green-600 text-white rounded-full shadow hover:bg-green-700 transition">
                                     Apply Now
                                 </button>
-                                <button className="px-4 py-2 bg-gray-100 text-gray-600 rounded-full shadow hover:bg-gray-200 transition">
-                                    <img src="src/assets/more.png" alt="More Options" className="w-4 h-4" />
-                                </button>
                             </div>
                         </div>
                     </div>
 
-
                     <div className="flex flex-wrap gap-4 mb-6">
-                        {/* <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.location}</div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.type}</div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.salary}</div>
-                    <div className="bg-gray-200 px-4 py-2 rounded-full text-sm">{selectedJob.daysAgo} days ago</div> */}
                         <div className="bg-gray-200 px-4 py-2 rounded-full text-sm flex items-center">
                             <img src="src/assets/location_icon.png" alt="Location Icon" className="w-4 h-4 mr-1" />
                             {selectedJob.location}
