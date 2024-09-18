@@ -50,7 +50,7 @@ const Hero = () => {
       <img
         src="src/assets/job_listing_page.png"
         alt="Job illustration"
-        className="md:w-3/4 h-auto mt-32 border-8 border-violet-800 relative z-10 rounded-lg"
+        className="md:w-3/4 h-auto mt-32 border-8 border-green-800 relative z-10 rounded-lg"
       />
     </div>
   )
