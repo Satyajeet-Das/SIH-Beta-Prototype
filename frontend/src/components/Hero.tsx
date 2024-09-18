@@ -21,35 +21,38 @@ const Hero = () => {
         <Header />
       </div>
 
-      <div className="relative z-10 text-left px-5 mt-16">
-        <h1 className="text-3xl md:text-5xl font-bold">
-          Pick your <span className="text-green-400">job</span> and
-          shape your <span className="italic">future</span>
-        </h1>
-        <p className="text-green-400 text-xl mt-2">with right skills</p>
-        <p className="text-lg mt-4 max-w-lg">
-          Personalised matches, whether you're an allied health professional, nurse, or physician, for the best jobs in the clinic and beyond.
-        </p>
-        <div className="mt-8 flex justify-start space-x-4">
-          <button className="bg-green-300 hover:bg-green-400 text-black font-bold py-2 px-6 rounded-full" onClick={() => {
-            navigate("/jobs");
-          }}>
-            Find my match
-          </button>
-          <button className="flex items-center space-x-2">
-            <span>Watch video</span>
-            <FontAwesomeIcon icon={faPlayCircle} />
-          </button>
+      <div className="relative z-10 text-left mt-16 flex flex-col md:flex-row px-4 items-start space-y-4 md:space-y-0 md:space-x-16 md:px-20">
+        <div>
+          <h1 className="text-3xl md:text-5xl font-bold">
+            Pick your <span className="text-green-400">job</span> and
+            shape your <span className="italic">future</span>
+          </h1>
+          <p className="text-green-400 text-xl mt-2">with right skills</p>
+        </div>
+        <div>
+          <p className="text-lg mt-4 max-w-lg">
+            Personalized pathways, job search, talent hiring and skill-building. Whether you are a student, a job seeker, or a career switcher, we have the right tools for you.
+          </p>
+          <div className="mt-8 flex justify-start space-x-4">
+            <button className="bg-green-300 hover:bg-green-400 text-black font-bold py-2 px-6 rounded-full" onClick={() => {
+              navigate("/jobs");
+            }}>
+              Find my match
+            </button>
+            <button className="flex items-center space-x-2">
+              <span>Watch video</span>
+              <FontAwesomeIcon icon={faPlayCircle} />
+            </button>
+          </div>
         </div>
       </div>
 
       <img
         src="src/assets/job_listing_page.png"
         alt="Job illustration"
-        className="w-3/4 h-auto mt-32 border-8 border-violet-800 relative z-10 rounded-lg"
+        className="md:w-3/4 h-auto mt-32 border-8 border-violet-800 relative z-10 rounded-lg"
       />
     </div>
-
   )
 }
 
